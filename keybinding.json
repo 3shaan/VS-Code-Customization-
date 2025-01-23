@@ -1,5 +1,22 @@
 // Place your key bindings in this file to override the defaults
 [
+  // Navigation
+  //   {
+  //     "key": "j j",
+  //     "command": "vim.remap",
+  //     "when": "vim.mode == 'Insert'",
+  //     "args": {
+  //         "after": ["<Esc>"]
+  //     }
+  // } ,
+  // {
+  //   "key": "j k",
+  //   "command": "vim.remap",
+  //   "when": "vim.mode == 'Insert'",
+  //   "args": {
+  //       "after": ["<Esc>"]
+  //   }
+  // },
   {
     "key": "ctrl+a",
     "command": "editor.action.selectAll",
@@ -26,6 +43,35 @@
     "command": "editor.action.organizeImports",
     "when": "editorTextFocus && vim.mode == 'Normal'"
   },
+  {
+    "key": "] e",
+    "command": "editor.action.marker.next",
+    "when": "editorTextFocus && vim.mode == 'Normal'"
+  },
+  {
+    "key": "[ e",
+    "command": "editor.action.marker.prev",
+    "when": "editorTextFocus && vim.mode == 'Normal'"
+  },
+
+  // Yank (copy) in Visual Mode
+  // {
+  //   "key": "y",
+  //   "command": "vim.remap",
+  //   "when": "vim.mode == 'Visual'",
+  //   "args": {
+  //       "after": ["y"]
+  //   }
+  // },
+  // // Paste in Normal Mode
+  // {
+  //   "key": "p",
+  //   "command": "vim.remap",
+  //   "when": "vim.mode == 'Normal'",
+  //   "args": {
+  //       "after": ["p"]
+  //   }
+  // },
 
   {
     "command": "workbench.action.navigateLeft",
@@ -77,12 +123,12 @@
   },
   {
     "command": "workbench.action.nextEditorInGroup",
-    "key": "tab",
+    "key": "space n",
     "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus)"
   },
   {
     "command": "workbench.action.previousEditorInGroup",
-    "key": "shift-tab",
+    "key": "space p",
     "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus)"
   },
   {
@@ -243,5 +289,36 @@
     "command": "list.toggleExpand",
     "key": "enter",
     "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && explorerResourceIsFolder && !inputFocus"
+  },
+  // terminal shortcut
+  {
+    "key": "ctrl+shift+j",
+    "command": "workbench.action.terminal.resizePaneDown",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+shift+k",
+    "command": "workbench.action.terminal.resizePaneUp",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.terminal.focusNextPane",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+h",
+    "command": "workbench.action.terminal.focusPreviousPane",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+shift+\\",
+    "command": "workbench.action.terminal.split",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+shift+d",
+    "command": "workbench.action.terminal.kill",
+    "when": "terminalFocus"
   }
 ]

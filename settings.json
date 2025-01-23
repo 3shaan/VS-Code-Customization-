@@ -84,5 +84,6 @@
         }
       }
     ]
-  }
+  },
+"workbench.activityBar.orientation": "vertical"
 }
