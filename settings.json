@@ -1,124 +1,294 @@
 {
-  "extensions.experimental.affinity": {
-    "vscodevim.vim": 1
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "editor.cursorSmoothCaretAnimation": "on",
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "editor.formatOnSave": true,
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact"
-  ],
-  "codeium.enableConfig": {
-    "*": true
-  },
-  "vim.easymotion": true,
-  "vim.useSystemClipboard": true,
-  "vim.insertModeKeyBindings": [
-    {
-      "before": ["j", "k"],
-      "after": ["<Esc>"]
-    }
-  ],
-  "vim.normalModeKeyBindings": [
-    {
-      "before": [":"],
-      "commands": ["workbench.action.showCommands"],
-      "silent": true
-    }
-  ],
-  "git.autofetch": true,
-  "git.confirmSync": false,
-  "cSpell.userWords": ["Challan"],
-  "editor.fontSize": 16,
-  "editor.fontFamily": "Operator Mono SSm Lig, 'Fira Code iScript', Fira Code,Consolas, 'Courier New', monospace",
-  "editor.fontLigatures": true,
-  "terminal.integrated.fontFamily": "'CaskaydiaCove Nerd Font',Hack Nerd Font , 'MesloLGS NF', monospace",
-  "editor.wordWrap": "on",
-  "editor.cursorBlinking": "expand",
-  "editor.tokenColorCustomizations": {
-    "textMateRules": [
-      {
-        "scope": [
-          "comment",
-          "entity.name.type.class",
-          "keyword",
-          "storage.modifier",
-          "storage.type",
-          "support.class.builtin",
-          "keyword.control",
-          "constant.language",
-          "entity.other.attribute-name",
-          "entity.name.method"
-        ],
-        "settings": {
-          "fontStyle": "italic"
+    "extensions.experimental.affinity": {
+        "vscodevim.vim": 1
+    },
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.formatOnSave": true,
+    "vim.easymotion": true,
+    "vim.useSystemClipboard": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "k"
+            ],
+            "after": [
+                "<Esc>"
+            ]
         }
-      },
-      {
-        "scope": [
-          "invalid",
-          "keyword.operator",
-          "constant.numeric.css",
-          "keyword.other.unit.px.css",
-          "constant.numeric.decimal.js",
-          "constant.numeric.json"
+    ],
+    "vim.normalModeKeyBindings": [
+        {
+            // Prev buffer
+            "before": [
+                "<S-h>"
+            ],
+            "commands": [
+                ":bprev"
+            ]
+        },
+        {
+            // Next buffer
+            "before": [
+                "<S-l>"
+            ],
+            "commands": [
+                ":bnext"
+            ]
+        },
+        // LSP
+        {
+            // Line Diagnostics
+            "before": [
+                "<leader>",
+                "c",
+                "d"
+            ],
+            "commands": [
+                "editor.action.showHover"
+            ],
+            "when": "workbench.panel.output.active"
+        },
+        {
+            // Goto Definition
+            "before": [
+                "g",
+                "d"
+            ],
+            "commands": [
+                "editor.action.revealDefinition"
+            ]
+        },
+        {
+            // References
+            "before": [
+                "g",
+                "r"
+            ],
+            "commands": [
+                "editor.action.goToReferences"
+            ]
+        },
+        {
+            // Goto Implementation
+            "before": [
+                "g",
+                "I"
+            ],
+            "commands": [
+                "editor.action.goToImplementation"
+            ]
+        },
+        {
+            // Goto T[y]pe Definition
+            "before": [
+                "g",
+                "y"
+            ],
+            "commands": [
+                "editor.action.goToTypeDefinition"
+            ]
+        },
+        {
+            // Hover
+            "before": [
+                "K"
+            ],
+            "commands": [
+                "editor.action.showHover"
+            ]
+        },
+        {
+            // Signature Help
+            "before": [
+                "<C-k>"
+            ],
+            "commands": [
+                "editor.action.triggerParameterHints"
+            ],
+            "when": "editorHasSignatureHelpProvider && editorTextFocus"
+        },
+        {
+            // Next Diagnostic
+            "before": [
+                "]",
+                "d"
+            ],
+            "commands": [
+                "editor.action.marker.next"
+            ],
+            "when": "editorFocus"
+        },
+        {
+            // Prev Diagnostic
+            "before": [
+                "[",
+                "d"
+            ],
+            "commands": [
+                "editor.action.marker.prev"
+            ],
+            "when": "editorFocus"
+        },
+        {
+            // Next Error
+            "before": [
+                "]",
+                "e"
+            ],
+            "commands": [
+                "editor.action.marker.next"
+            ],
+            "when": "editorFocus"
+        },
+        {
+            // Prev Error
+            "before": [
+                "[",
+                "e"
+            ],
+            "commands": [
+                "editor.action.marker.prev"
+            ],
+            "when": "editorFocus"
+        },
+        {
+            // Next Warning
+            "before": [
+                "]",
+                "w"
+            ],
+            "commands": [
+                "editor.action.marker.next"
+            ],
+            "when": "editorFocus"
+        },
+        {
+            // Prev Warning
+            "before": [
+                "[",
+                "w"
+            ],
+            "commands": [
+                "editor.action.marker.prev"
+            ],
+            "when": "editorFocus"
+        },
+        {
+            // Format Document
+            "before": [
+                "<leader>",
+                "c",
+                "f"
+            ],
+            "commands": [
+                "editor.action.formatDocument"
+            ],
+            "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
+        },
+    ],
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "editor.fontSize": 16,
+    "editor.fontFamily": "Operator Mono SSm Lig, 'Fira Code iScript', Fira Code,Consolas, 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "editor.fontWeight": "400",
+    "terminal.integrated.fontFamily": "'CaskaydiaCove Nerd Font',Hack Nerd Font , 'MesloLGS NF', monospace",
+    "editor.wordWrap": "on",
+    "editor.cursorBlinking": "expand",
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": [
+                    "comment",
+                    "entity.name.type.class",
+                    "keyword",
+                    "storage.modifier",
+                    "storage.type",
+                    "support.class.builtin",
+                    "keyword.control",
+                    "constant.language",
+                    "entity.other.attribute-name",
+                    "entity.name.method"
+                ],
+                "settings": {
+                    "fontStyle": "italic"
+                }
+            },
+            {
+                "scope": [
+                    "invalid",
+                    "keyword.operator",
+                    "constant.numeric.css",
+                    "keyword.other.unit.px.css",
+                    "constant.numeric.decimal.js",
+                    "constant.numeric.json"
+                ],
+                "settings": {
+                    "fontStyle": ""
+                }
+            }
+        ]
+    },
+    "terminal.integrated.gpuAcceleration": "on",
+    "window.commandCenter": true,
+    "editor.largeFileOptimizations": false,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "editor.inlayHints.enabled": "on",
+    "javascript.inlayHints.parameterNames.enabled": "all",
+    "javascript.inlayHints.parameterTypes.enabled": true,
+    "javascript.inlayHints.variableTypes.enabled": false,
+    "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
+    "javascript.inlayHints.propertyDeclarationTypes.enabled": true,
+    "typescript.inlayHints.parameterNames.enabled": "all",
+    "typescript.inlayHints.parameterTypes.enabled": true,
+    "typescript.inlayHints.variableTypes.enabled": false,
+    "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+    "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
+    "typescript.inlayHints.enumMemberValues.enabled": true,
+    // todo tree config
+    "todo-tree.tree.scanAtStartup": false,
+    "todo-tree.highlights.enabled": false,
+    "todo-tree.general.tags": [
+        "TODO",
+        "todo",
+        "BUG",
+        "FIX",
+        "FIXME",
+        "fix",
+        "fixme",
+        "MARK",
+        "mark"
+    ],
+    "todo-tree.general.tagGroups": {
+        "TODO": [
+            "TODO",
+            "todo",
+            "Todo"
         ],
-        "settings": {
-          "fontStyle": ""
+        "BUG": [
+            "BUG",
+            "FIX",
+            "FIXME",
+            "fix",
+            "fixme"
+        ],
+        "MARK": [
+            "MARK",
+            "mark"
+        ]
+    },
+    "todo-tree.highlights.customHighlight": {
+        "TODO": {
+            "icon": "checklist"
+        },
+        "BUG": {
+            "icon": "bug"
+        },
+        "MARK": {
+            "icon": "bookmark"
         }
-      }
-    ]
-  },
-  "workbench.activityBar.orientation": "vertical",
-  "terminal.integrated.gpuAcceleration": "on",
-  "dart.flutterSdkPath": "C:\\flutter",
-  "window.commandCenter": true,
-  "editor.largeFileOptimizations": false,
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[css]": {
-    "editor.defaultFormatter": "vscode.css-language-features"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-    "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  "editor.inlayHints.enabled": "on",
-  "javascript.inlayHints.parameterNames.enabled": "all",
-  "javascript.inlayHints.parameterTypes.enabled": true,
-  "javascript.inlayHints.variableTypes.enabled": false,
-  "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
-  "javascript.inlayHints.propertyDeclarationTypes.enabled": true,
-  "javascript.inlayHints.enumMemberValues.enabled": true,
-  "typescript.inlayHints.parameterNames.enabled": "all",
-  "typescript.inlayHints.parameterTypes.enabled": true,
-  "typescript.inlayHints.variableTypes.enabled": false,
-  "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
-  "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
-  "typescript.inlayHints.enumMemberValues.enabled": true,
-  "cursor.general.disableHttp2": true,
-
-  "workbench.colorTheme": "Gruvbox Light Soft",
-  //trae settings
-  "trae.tab.enableAutoImport": true,
-  "trae.tab.enableAutoRename": true,
-  "trae.notification.enableOffersAndPromotions": false,
-  "trae.notification.enableTipsAndSuggestions": false,
-  "trae.notification.enableAccountNotifications": false,
-  "trae.notification.enableFeedbackAndSurveys": false
+    },
+    "todo-tree.tree.labelFormat": "${tag:uppercase} ${after} [${filename}]",
+    "todo-tree.tree.tooltipFormat": "${filename}:[${line}] in ${filepath}",
 }
